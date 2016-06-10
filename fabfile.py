@@ -17,3 +17,13 @@ def run_tests():
     _ensure_virtualenv()
     local('python code/unittest_helloworld.py')
 
+def run_pep8():
+    _ensure_virtualenv()
+    local('pep8 code')
+
+def pre_commit():
+    _ensure_virtualenv()
+    install_deps()
+    run_pep8()
+    run_tests()
+    
