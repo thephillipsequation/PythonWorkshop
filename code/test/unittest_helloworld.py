@@ -1,4 +1,6 @@
+'''unittest for helloworld.py'''
 import unittest
+import code.helloworld as foo
 
 
 class TestStringMethods(unittest.TestCase):
@@ -6,7 +8,9 @@ class TestStringMethods(unittest.TestCase):
 
     def test_print(self):
         '''test helloworld'''
-        import helloworld
+        self.assertTrue(1 == 1)
+        foo.hello_world()
+
 
 if __name__ == '__main__':
     unittest.main()
