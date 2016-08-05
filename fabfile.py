@@ -15,7 +15,7 @@ def install_deps():
 
 def run_tests():
     _ensure_virtualenv()
-    local('python code/unittest_helloworld.py')
+    local('nosetests test')
 
 def run_pep8():
     _ensure_virtualenv()
