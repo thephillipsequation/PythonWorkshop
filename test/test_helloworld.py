@@ -1,4 +1,5 @@
 import unittest
+from code.helloworld import Helloworld
 
 
 class TestStringMethods(unittest.TestCase):
@@ -6,7 +7,5 @@ class TestStringMethods(unittest.TestCase):
 
     def test_print(self):
         '''test helloworld'''
-        import helloworld
+        self.assertEquals(Helloworld().helloworld(), 3)
 
-if __name__ == '__main__':
-    unittest.main()
