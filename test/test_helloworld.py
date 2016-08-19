@@ -1,3 +1,4 @@
+''' i am a test module '''
 import unittest
 from code.helloworld import Helloworld
 
@@ -8,4 +9,3 @@ class TestStringMethods(unittest.TestCase):
     def test_print(self):
         '''test helloworld'''
         self.assertEquals(Helloworld().helloworld(), 3)
-

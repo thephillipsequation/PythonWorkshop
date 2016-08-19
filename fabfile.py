@@ -20,10 +20,17 @@ def run_tests():
 def run_pep8():
     _ensure_virtualenv()
     local('pep8 code')
+    local('pep8 test')
+
+def run_pylint():
+    _ensure_virtualenv()
+    local('pylint code --rcfile=dev_conf/pylintrc.txt')
+    local('pylint test --rcfile=dev_conf/pylintrc.txt')
 
 def pre_commit():
     _ensure_virtualenv()
     install_deps()
     run_pep8()
+    run_pylint()
     run_tests()
     
