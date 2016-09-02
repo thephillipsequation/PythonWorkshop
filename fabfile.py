@@ -19,7 +19,7 @@ def run_tests():
     _ensure_virtualenv()
     local('rm -rf reports')
     local('mkdir -p reports')
-    local('nosetests test --cover-min-percentage=100 --with-coverage --cover-package=code --cover-html --cover-html-dir=reports --cover-branches')
+    local('nosetests test --cover-min-percentage=100 --cover-branches --with-coverage --cover-package=code --cover-html --cover-html-dir=reports --cover-erase')
 
 
 def run_pep8():
