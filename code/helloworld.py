@@ -6,9 +6,9 @@ class Helloworld(object):
     ''' i am a class '''
 
     @classmethod
-    def helloworld(cls, a, b):
+    def helloworld(cls, alpha, beta):
         ''' i am a method '''
-        if a == b:
+        if alpha == beta:
             print "yyyyyy"
         return 3
 

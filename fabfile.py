@@ -40,4 +40,3 @@ def pre_commit():
     run_pep8()
     run_pylint()
     run_tests()
-    
