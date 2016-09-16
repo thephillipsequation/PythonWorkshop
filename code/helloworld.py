@@ -26,4 +26,7 @@ class Foobar(object):
 
     def do_stuff(self):
         ''' i will do stuff '''
-        self.hello_world.helloworld(7, 8)
+        my_bar = self.hello_world.helloworld(7, 8)
+        if my_bar > 100:
+            return "hello"
+        return "goodbye"

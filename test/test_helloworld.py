@@ -4,6 +4,7 @@ from code.helloworld import Helloworld, Foobar
 from mockito import mock
 from mockito import verify
 from mockito import verifyNoMoreInteractions
+from mockito import when
 
 
 class TestStringMethods(unittest.TestCase):
@@ -32,6 +33,14 @@ class TestFoobar(unittest.TestCase):
 
     def test_do_stuff(self):
         ''' test do stuff '''
-        self.foobar.do_stuff()
+        when(self.hello_world).helloworld(7, 8).thenReturn(1000)
+        self.assertEqual(self.foobar.do_stuff(), "hello")
+        verify(self.hello_world).helloworld(7, 8)
+        verifyNoMoreInteractions(self.hello_world)
+
+    def test_do_stuff_2_or_whatever(self):
+        ''' test do stuff '''
+        when(self.hello_world).helloworld(7, 8).thenReturn(50)
+        self.assertEqual(self.foobar.do_stuff(), "goodbye")
         verify(self.hello_world).helloworld(7, 8)
         verifyNoMoreInteractions(self.hello_world)
