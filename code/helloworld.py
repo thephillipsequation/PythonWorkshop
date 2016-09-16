@@ -16,3 +16,14 @@ class Helloworld(object):
     def nomnomnom(cls):
         ''' i am a method '''
         return 3
+
+
+class Foobar(object):
+    ''' i am a class '''
+
+    def __init__(self, hello_world):
+        self.hello_world = hello_world
+
+    def do_stuff(self):
+        ''' i will do stuff '''
+        self.hello_world.helloworld(7, 8)
