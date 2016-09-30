@@ -1,6 +1,6 @@
 ''' i am a test module '''
 import unittest
-from code.helloworld import Helloworld, Foobar, HelloRequests
+from mypackage.helloworld import Helloworld, Foobar, HelloRequests
 from mockito import mock
 from mockito import verify
 from mockito import verifyNoMoreInteractions
