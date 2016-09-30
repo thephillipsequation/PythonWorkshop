@@ -1,10 +1,19 @@
 ''' i am a test module '''
 import unittest
-from code.helloworld import Helloworld, Foobar
+from code.helloworld import Helloworld, Foobar, HelloRequests
 from mockito import mock
 from mockito import verify
 from mockito import verifyNoMoreInteractions
 from mockito import when
+
+
+class TestRequests(unittest.TestCase):
+    ''' tests for the requests class '''
+
+    def test_make_request(self):
+        ''' test making a request '''
+        retval = HelloRequests().make_request()
+        self.assertIn('GOOGLE', retval.upper())
 
 
 class TestStringMethods(unittest.TestCase):

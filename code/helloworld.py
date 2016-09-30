@@ -1,5 +1,15 @@
 ''' i am a module '''
 # pylint: disable=too-few-public-methods
+import requests
+
+
+class HelloRequests(object):
+    ''' class for requests '''
+
+    def make_request(self):
+        ''' simple request method '''
+        response = requests.get('https://www.google.com')
+        return response.text
 
 
 class Helloworld(object):
