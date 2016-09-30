@@ -6,7 +6,8 @@ import requests
 class HelloRequests(object):
     ''' class for requests '''
 
-    def make_request(self):
+    @classmethod
+    def make_request(cls):
         ''' simple request method '''
         response = requests.get('https://www.google.com')
         return response.text

@@ -19,18 +19,18 @@ def run_tests():
     _ensure_virtualenv()
     local('rm -rf reports')
     local('mkdir -p reports')
-    local('nosetests test --cover-min-percentage=100 --cover-branches --with-coverage --cover-package=code --cover-html --cover-html-dir=reports --cover-erase')
+    local('nosetests test --cover-min-percentage=100 --cover-branches --with-coverage --cover-package=mypackage --cover-html --cover-html-dir=reports --cover-erase')
 
 
 def run_pep8():
     _ensure_virtualenv()
-    local('pep8 code')
+    local('pep8 mypackage')
     local('pep8 test')
 
 
 def run_pylint():
     _ensure_virtualenv()
-    local('pylint code --rcfile=dev_conf/pylintrc.txt')
+    local('pylint mypackage --rcfile=dev_conf/pylintrc.txt')
     local('pylint test --rcfile=dev_conf/pylintrc.txt')
 
 
