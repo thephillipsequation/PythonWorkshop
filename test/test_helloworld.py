@@ -1,18 +1,33 @@
 ''' i am a test module '''
+# pylint: disable=redefined-builtin
 import unittest
-from mypackage.helloworld import Helloworld, Foobar, HelloRequests
+from mypackage import helloworld
 from mockito import mock
 from mockito import verify
 from mockito import verifyNoMoreInteractions
 from mockito import when
+from mockito import any
+from mockito.mockito import unstub
 
 
 class TestRequests(unittest.TestCase):
     ''' tests for the requests class '''
 
+    def tearDown(self):
+        '''tear down the test'''
+        unstub()
+
     def test_make_request(self):
         ''' test making a request '''
-        retval = HelloRequests().make_request()
+        response_mock = mock()
+        response_mock.text = 'test123'
+        when(helloworld.requests).get(any()).thenReturn(response_mock)
+        retval = helloworld.HelloRequests().make_request()
+        self.assertIn('123', retval.upper())
+
+    def test_zzz(self):
+        '''testing something new'''
+        retval = helloworld.HelloRequests().make_request()
         self.assertIn('GOOGLE', retval.upper())
 
 
@@ -21,15 +36,15 @@ class TestStringMethods(unittest.TestCase):
 
     def test_print_branch1(self):
         '''test helloworld'''
-        self.assertEquals(Helloworld().helloworld(1, 1), 3)
+        self.assertEquals(helloworld.Helloworld().helloworld(1, 1), 3)
 
     def test_print_branch2(self):
         '''test helloworld'''
-        self.assertEquals(Helloworld().helloworld(1, 2), 3)
+        self.assertEquals(helloworld.Helloworld().helloworld(1, 2), 3)
 
     def test_nomnomnom(self):
         '''test helloworld'''
-        self.assertEquals(Helloworld.nomnomnom(), 3)
+        self.assertEquals(helloworld.Helloworld.nomnomnom(), 3)
 
 
 class TestFoobar(unittest.TestCase):
@@ -38,7 +53,7 @@ class TestFoobar(unittest.TestCase):
     def setUp(self):
         ''' set up test '''
         self.hello_world = mock()
-        self.foobar = Foobar(self.hello_world)
+        self.foobar = helloworld.Foobar(self.hello_world)
 
     def test_do_stuff(self):
         ''' test do stuff '''
