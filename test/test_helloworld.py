@@ -18,7 +18,7 @@ class TestRequests(unittest.TestCase):
         unstub()
 
     def test_make_request(self):
-        ''' test making a request '''
+        ''' test making a request.'''
         response_mock = mock()
         response_mock.text = 'test123'
         when(helloworld.requests).get(any()).thenReturn(response_mock)
